@@ -1,0 +1,64 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5rem;
+}
+
+.Header {
+  font-size: 3rem;
+  color: white;
+  margin-top: 2rem;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+
+.Field {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  height: 100px;
+  width: 100px;
+  border: 1px solid rgb(125, 123, 123);
+  border-radius: 8px;
+  color: white;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: 4rem;
+  text-transform: uppercase;
+}
+
+.Wordle {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.WordGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.GameOver {
+  font-size: 4rem;
+  color: white;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.btnRestart {
+  height: 50px;
+  width: 200px;
+  font-size: xx-large;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  color: white;
+  background-color: #3f3f40;
+  border: 0px;
+  border-radius: 20px;
+}
+
+.btnRestart:hover {
+  background-color: #666667;
+}
