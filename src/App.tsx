@@ -12,11 +12,20 @@ function App() {
     Array(6).fill(null)
   );
   const [gameOver, setGameOver] = useState(false);
-  const [isFinal, setIsFinal] = useState(false);
+  const [isWinner, setIsWinner] = useState(false);
 
   const restartGame = () => {
     window.location.reload();
   };
+
+  useEffect(() => {
+    if (
+      currentGuess !== wordToGuess &&
+      guessedWords.every((word) => word !== null)
+    ) {
+      setGameOver(true);
+    }
+  }, [guessedWords]);
 
   useEffect(() => {
     const filteredWords = words.filter((word) => word.split("").length === 5);
@@ -37,14 +46,15 @@ function App() {
         if (currentGuess.length !== 5) return;
 
         const isCorrect = wordToGuess === currentGuess;
-        if (isCorrect) setGameOver(true);
-
+        if (isCorrect) {
+          setGameOver(true);
+          setIsWinner(true);
+        }
         const newGuesses = [...guessedWords];
         newGuesses[guessedWords.findIndex((guess) => guess == null)] =
           currentGuess;
         setGuessedWords(newGuesses);
         setCurrentGuess("");
-        setIsFinal(true);
       } else if (e.key === "Backspace") {
         setCurrentGuess((previous) => previous.slice(0, -1));
       }
@@ -84,7 +94,7 @@ function App() {
               alignItems: "center",
             }}
           >
-            Congratulations! The word was:
+            {isWinner ? "Congratulations" : "You've lost :/ "} The word was:
             <p style={{ color: "green" }}>{wordToGuess}</p>
           </span>
 
