@@ -34,7 +34,7 @@ export function OneWord({
         className={styles.Field}
         style={{
           backgroundColor: backgroundColor,
-          // outline: "2px groove white",
+          transition: "background-color .6s ease-in-out ",
         }}
       >
         {guessedWord[i]}
